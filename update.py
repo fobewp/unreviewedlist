@@ -14,7 +14,7 @@ def update_list(list): # deprecated
 def update_list_with_redir(list,list_redir):
 	page = site.pages[pagename]
 	text = page.text()
-	m = re.search('(?s).*== Lista ==', text)
+	m = re.search('(?s).*{{címsor|Lista}}', text)
 	page.edit(m.group(0) + list + list_redir, 'Bot: Lista frissítése')
 
 ua = 'Bot using mwclient framework (https://github.com/mwclient/mwclient)'
@@ -29,7 +29,7 @@ with open('result.csv', 'r') as stream:
 	for line in lines:
 		new_list += line.replace('_',' ');
 new_list += '\n{{hasáb vége}}\n'
-new_list_redir = '=== Átirányítások ===\n{{hasáb eleje}}\n'
+new_list_redir = '{{címsor|Átirányítások}}\n{{hasáb eleje}}\n'
 with open('result_redir.csv', 'r') as stream:
 	lines = stream.readlines();
 	for line in lines:
