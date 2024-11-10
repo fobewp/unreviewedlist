@@ -14,7 +14,7 @@ def update_list(list): # deprecated
 def update_list_with_redir(list,list_redir):
 	page = site.pages[pagename]
 	text = page.text()
-	m = re.search('(?s).*{{címsor|Lista}}', text)
+	m = re.search('(?s).*{{címsor\|Lista}}', text)
 	page.edit(m.group(0) + list + list_redir, 'Bot: Lista frissítése')
 
 ua = 'Bot using mwclient framework (https://github.com/mwclient/mwclient)'
